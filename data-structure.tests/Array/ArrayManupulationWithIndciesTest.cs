@@ -16,13 +16,13 @@ namespace data_structure.tests.Array
         {
             //arrange 
             int arrayLength = 5;
-            List<List<int>> list = new List<List<int>>() {
-                new List<int> { 1, 2, 100 },
-                new List<int> { 2, 5, 100 },
-                new List<int> { 3, 4, 100 }
+            List<List<long>> list = new List<List<long>>() {
+                new List<long> { 1, 2, 100 },
+                new List<long> { 2, 5, 100 },
+                new List<long> { 3, 4, 100 }
             };
 
-            int result = ArrayManupulationWithIndcies.ArrayManupulation(arrayLength, list);
+            long result = ArrayManupulationWithIndcies.ArrayManupulatioBetter(arrayLength, list);
 
 
         }
