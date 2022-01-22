@@ -19,7 +19,47 @@ namespace data_structure.Stack
         public static List<int> FindNextGreaterElement(List<int> list)
         {
             List<int> result = new List<int>();
+            Stack<int> stack = new Stack<int>();
+            for (int i = 2 * list.Count - 1; i >= 0; i--)
+            {
+                if (i > list.Count - 1)
+                {
+                    int tempi = i % list.Count;
+                    if (stack.Count == 0)
+                    {
+                        stack.Push(list[list.Count - 1]);
+                        result.Add(-1);
+                    }
+                    else
+                    {
+                        if (list[tempi] < stack.Peek())
+                        {
+                            result.Add(stack.Peek());
+                        }
+                        else if (list[tempi] > stack.Peek())
+                        {
+                            stack.Push(list[tempi]);
+                            result.Add(-1);
+                        }
+                    }
+
+                }
+            }
+
+            //result  
+            result.Reverse();
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                if (result[i] == -1 && list[i] < stack.Peek())
+                {
+                    result[i] = stack.Peek();
+                    stack.Pop();
+                }
+            }
+
             return result;
         }
     }
+
 }
+
